@@ -1,0 +1,22 @@
+//----------  layout
+//------------------------------------------------------------------------------
+
+body,
+html {
+	height: 100%;
+}
+
+body {
+	font-family: $font-default;
+	font-size: 14px;
+    display: grid;
+    grid-template-rows: 88px calc(100% - 168px) 80px;
+}
+
+.wrap {
+	@extend %clearfix;
+	margin: 0 auto;
+	max-width: 1000px;
+	padding: 0 20px;
+	width: 100%;
+}

@@ -1,0 +1,174 @@
+@font-face {
+	font-family: 'svgicons';
+	src: url('../../fonts/dist/svgicons.woff2') format('woff2'),
+		url('../../fonts/dist/svgicons.woff') format('woff'),
+		url('../../fonts/dist/svgicons.ttf') format('truetype');
+}
+
+@mixin font-styles {
+	font-family: 'svgicons';
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%font {
+	@include font-styles;
+}
+
+@function font-char($filename) {
+	$char: "";
+
+	@if $filename == Arrow_left {
+		$char: '\E001';
+	}
+	@if $filename == Arrow_right {
+		$char: '\E002';
+	}
+	@if $filename == baseline-arrow_downward-24px {
+		$char: '\E003';
+	}
+	@if $filename == baseline-person_pin-24px {
+		$char: '\E004';
+	}
+	@if $filename == baseline-person_pin-24px_boat {
+		$char: '\E005';
+	}
+	@if $filename == Boat_icon {
+		$char: '\E006';
+	}
+	@if $filename == Car_icon {
+		$char: '\E007';
+	}
+	@if $filename == Close_icon {
+		$char: '\E008';
+	}
+	@if $filename == Email_icon {
+		$char: '\E009';
+	}
+	@if $filename == facebook_icon {
+		$char: '\E00A';
+	}
+	@if $filename == Logo_ENGIE {
+		$char: '\E00B';
+	}
+	@if $filename == Menu_mobile {
+		$char: '\E00C';
+	}
+	@if $filename == NoordHolland_logo {
+		$char: '\E00D';
+	}
+	@if $filename == outline-menu-24px {
+		$char: '\E00E';
+	}
+	@if $filename == outline-person_pin_circle-24px {
+		$char: '\E00F';
+	}
+	@if $filename == outline-search-24px {
+		$char: '\E010';
+	}
+	@if $filename == Phone_icon {
+		$char: '\E011';
+	}
+	@if $filename == Pin_boat_blue_normal {
+		$char: '\E012';
+	}
+	@if $filename == Pin_boat_purple_pushed {
+		$char: '\E013';
+	}
+	@if $filename == Pin_car_blue_normal {
+		$char: '\E014';
+	}
+	@if $filename == Pin_car_purple_pushed {
+		$char: '\E015';
+	}
+	@if $filename == twitter_icon {
+		$char: '\E016';
+	}
+
+	@return $char;
+}
+
+@mixin font($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %font;
+		} @else {
+			@include font-styles;
+		}
+		content: font-char($filename);
+	}
+}
+
+.font-Arrow_left {
+	@include font(Arrow_left);
+}
+.font-Arrow_right {
+	@include font(Arrow_right);
+}
+.font-baseline-arrow_downward-24px {
+	@include font(baseline-arrow_downward-24px);
+}
+.font-baseline-person_pin-24px {
+	@include font(baseline-person_pin-24px);
+}
+.font-baseline-person_pin-24px_boat {
+	@include font(baseline-person_pin-24px_boat);
+}
+.font-Boat_icon {
+	@include font(Boat_icon);
+}
+.font-Car_icon {
+	@include font(Car_icon);
+}
+.font-Close_icon {
+	@include font(Close_icon);
+}
+.font-Email_icon {
+	@include font(Email_icon);
+}
+.font-facebook_icon {
+	@include font(facebook_icon);
+}
+.font-Logo_ENGIE {
+	@include font(Logo_ENGIE);
+}
+.font-Menu_mobile {
+	@include font(Menu_mobile);
+}
+.font-NoordHolland_logo {
+	@include font(NoordHolland_logo);
+}
+.font-outline-menu-24px {
+	@include font(outline-menu-24px);
+}
+.font-outline-person_pin_circle-24px {
+	@include font(outline-person_pin_circle-24px);
+}
+.font-outline-search-24px {
+	@include font(outline-search-24px);
+}
+.font-Phone_icon {
+	@include font(Phone_icon);
+}
+.font-Pin_boat_blue_normal {
+	@include font(Pin_boat_blue_normal);
+}
+.font-Pin_boat_purple_pushed {
+	@include font(Pin_boat_purple_pushed);
+}
+.font-Pin_car_blue_normal {
+	@include font(Pin_car_blue_normal);
+}
+.font-Pin_car_purple_pushed {
+	@include font(Pin_car_purple_pushed);
+}
+.font-twitter_icon {
+	@include font(twitter_icon);
+}
+

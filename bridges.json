@@ -1,0 +1,48 @@
+{
+	"bridges": 
+	[{
+		"id": "1",
+		"position_lat": "52.273617",
+		"position_long": "4.750917",
+		"state": "P",
+		"name": "Aalsmeerderbrug A + B",
+		"type": "car",
+		"bridge_type": "Basculebrug",
+		"traffic": "Road",
+		"image_url": "/images/content/bridge.jpg",
+		"info": "De werkzaamheden zullen plaatsvinden van <span> 29 oktober 2018 tot en met 12 november 2018.</span>",
+		"download_url": "/pdf/name.pdf",
+		"popup_content": "<h1>Aalsmeerderbrug A + B</h1><p>De werkzaamheden zullen plaatsvinden van 29 oktober 2018 tot en met 12 november 2018.</p><h2>Wegverkeer</h2><p>De brug zal vanaf maandag 29 oktober 07:30 uur tot en met woensdag 7 november 07:30 afgesloten worden in beide richtingen. Het wegverkeer wordt met behulp van borden omgeleid via de Zijperbrug. Vanaf woensdag 7 november 07:30 uur tot en met maandag 12 november 16:40 uur zult u rekening moeten houden met extra reistijd. De brug zal meermaals geopend worden in verband met testen. Veelal zal de brug geopend worden zonder dat een scheepvaart in de buurt is. We trachten de wachttijden te beperken tot maximaal 10 minuten.</p><h2>Vaarwegverkeer</h2><p>Van maandag 5 tot en met vrijdag 9 november en 12 november wordt de Stolperophaalbrug alleen bediend voor scheepvaartverkeer om 07:20 uur, 12:00 uur en 16:30 uur. Op zaterdag 10 november gelden de reguliere bedientijden.</p><h2>Openbaar vervoer</h2><p>De bushalten (Schagerbrug, Schagerweg en Schagerbrug, Buurtje) van lijn 152 zullen in de periode 29 oktober 2018 tot en met 7 november 2018 07:30 uur opgeheven zijn. Meer informatie vindt u op www.connexxion.nl en bij de op te heffen bushalten.</p>",
+		"show": "yes"
+	},
+	{
+		"id": "2",
+		"position_lat": "52.801867",
+		"position_long": "4.99855",	
+		"state": "NP",
+		"name": "Alkmaarsebrug A + B",
+		"type": "car",
+		"bridge_type": "Basculebrug",
+		"traffic": "Road",
+		"image_url": "/images/content/bridge.jpg",
+		"info": "De werkzaamheden zullen plaatsvinden van 29 oktober 2018 tot en met <span>12 november 2018</span>.",
+		"download_url": "/pdf/name.pdf",
+		"popup_content": "<h1>Alkmaarsebrug A + B</h1><p>De werkzaamheden zullen plaatsvinden van 29 oktober 2018 tot en met 12 november 2018.</p><h2>Wegverkeer</h2><p>De brug zal vanaf maandag 29 oktober 07:30 uur tot en met woensdag 7 november 07:30 afgesloten worden in beide richtingen. Het wegverkeer wordt met behulp van borden omgeleid via de Zijperbrug. Vanaf woensdag 7 november 07:30 uur tot en met maandag 12 november 16:40 uur zult u rekening moeten houden met extra reistijd. De brug zal meermaals geopend worden in verband met testen. Veelal zal de brug geopend worden zonder dat een scheepvaart in de buurt is. We trachten de wachttijden te beperken tot maximaal 10 minuten.</p><h2>Vaarwegverkeer</h2><p>Van maandag 5 tot en met vrijdag 9 november en 12 november wordt de Stolperophaalbrug alleen bediend voor scheepvaartverkeer om 07:20 uur, 12:00 uur en 16:30 uur. Op zaterdag 10 november gelden de reguliere bedientijden.</p><h2>Openbaar vervoer</h2><p>De bushalten (Schagerbrug, Schagerweg en Schagerbrug, Buurtje) van lijn 152 zullen in de periode 29 oktober 2018 tot en met 7 november 2018 07:30 uur opgeheven zijn. Meer informatie vindt u op www.connexxion.nl en bij de op te heffen bushalten.</p>",
+		"show": "yes"
+	},
+	{
+		"id": "3",
+		"position_lat": "52.8865",
+		"position_long": "4.873717",
+		"state": "WIP",
+		"name": "Balgzandbrug",
+		"type": "boat",
+		"bridge_type": "Brug",
+		"traffic": "Water",
+		"image_url": "/images/content/bridge.jpg",
+		"info": "De werkzaamheden zullen <span>plaatsvinden van 29 oktober 2018</span> tot en met 12 november 2018.",
+		"download_url": "/pdf/name.pdf",
+		"popup_content": "<h1>Balgzandbrug</h1><p>De werkzaamheden zullen plaatsvinden van 29 oktober 2018 tot en met 12 november 2018.</p><h2>Wegverkeer</h2><p>De brug zal vanaf maandag 29 oktober 07:30 uur tot en met woensdag 7 november 07:30 afgesloten worden in beide richtingen. Het wegverkeer wordt met behulp van borden omgeleid via de Zijperbrug. Vanaf woensdag 7 november 07:30 uur tot en met maandag 12 november 16:40 uur zult u rekening moeten houden met extra reistijd. De brug zal meermaals geopend worden in verband met testen. Veelal zal de brug geopend worden zonder dat een scheepvaart in de buurt is. We trachten de wachttijden te beperken tot maximaal 10 minuten.</p><h2>Vaarwegverkeer</h2><p>Van maandag 5 tot en met vrijdag 9 november en 12 november wordt de Stolperophaalbrug alleen bediend voor scheepvaartverkeer om 07:20 uur, 12:00 uur en 16:30 uur. Op zaterdag 10 november gelden de reguliere bedientijden.</p><h2>Openbaar vervoer</h2><p>De bushalten (Schagerbrug, Schagerweg en Schagerbrug, Buurtje) van lijn 152 zullen in de periode 29 oktober 2018 tot en met 7 november 2018 07:30 uur opgeheven zijn. Meer informatie vindt u op www.connexxion.nl en bij de op te heffen bushalten.</p>",
+		"show": "yes"
+	}]
+}

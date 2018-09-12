@@ -1,0 +1,184 @@
+{> "partials/shared/head" /}
+
+<main class="main" data-template-name="kaart">
+	<div id="map" class="map">
+	</div>
+	<div class="slider">
+		<div class="banner green">
+			<p>
+				Lorem ipsum
+			</p>
+		</div>
+		<div class="swiper-container">
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-wrapper">
+
+			</div>
+		</div>
+	</div>
+	<div class="bridges-responsive">
+
+	</div>
+</main>
+<script>
+	var _swiper = undefined;
+	var _prevMarker = "";
+ 	var _markers = [];
+ 	var _map = undefined;
+
+ 	var boat, boatSelected, car, carSelected = {};
+	function initMap() {
+		var host = window.location.origin;
+		var windowWidth = $(window).width();
+		var center = findCenter();
+		
+		var mapOptions = {
+			center: center,
+			mapTypeControl: false,
+			zoomControl: true,
+			zoomControlOptions: {
+				position: google.maps.ControlPosition.LEFT_BOTTOM
+			},
+			streetViewControl: false,
+			fullscreenControl: false,
+			zoom: 9.5
+		}
+		_map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+		//host = "file:///E:/Work/klijent/Engie/html/"
+		var iconBase = host + "/images/svg/";	
+
+		boat = {
+			url: iconBase + "Pin_boat_blue_normal.svg",
+			scaledSize: new google.maps.Size(37, 37)
+		};
+
+		boatSelected = {
+			url: iconBase + "Pin_boat_purple_pushed.svg",
+			scaledSize: new google.maps.Size(45, 45)
+		};		
+
+		car = {
+			url: iconBase + "Pin_car_blue_normal.svg",
+			scaledSize: new google.maps.Size(37, 37)
+		};
+
+		carSelected = {
+			url: iconBase + "Pin_car_purple_pushed.svg",
+			scaledSize: new google.maps.Size(45, 45)
+		};
+
+		var bridges = "";
+		$.getJSON("http://engie.local/bridges.json?a=" + new Date().getTime(),
+			function(data) {
+			bridges = data.bridges;
+	
+			bridges.forEach(function(bridge) {
+				//create marker
+				var marker = new google.maps.Marker({
+					position: new google.maps.LatLng(parseFloat(bridge.position_lat), parseFloat(bridge.position_long)),
+					map: _map,
+					icon: bridge.type,
+					customName: bridge.name,
+					traffic: bridge.traffic,
+					id: bridge.id
+				});
+
+				if (marker.traffic == "Water") {
+					marker.setIcon(boat);
+				} else {
+					marker.setIcon(car);
+				}
+				
+				// attach click event for marker
+				marker.addListener("click", function() {
+					var bridgeName = this.customName,
+						bridgeType = this.icon,
+						bridgeTraffic = this.traffic;
+
+					if(_prevMarker !== "") {
+						if (_prevMarker.traffic == "Water") {
+							_prevMarker.setIcon(boat);
+						} else {
+							_prevMarker.setIcon(car);
+						}
+			        }
+
+					_prevMarker = this;
+
+					if (this.traffic == "Water") {
+						marker.setIcon(boatSelected);
+					} else {
+						marker.setIcon(carSelected);
+					}
+
+					_swiper.slideTo(parseInt(this.id) + 1, 300, true);
+
+					$(".swiper-slide").removeClass("active");
+					$(".swipper-slide-inner[data-index='" + parseInt(this.id) + "']").parent().addClass("active");
+
+					$(".bridges-responsive").find(".bridge").removeClass("active");
+					$(".bridges-responsive").find(".bridge[data-index='" + parseInt(this.id) + "']").addClass("active");
+				});
+
+				_markers.push(marker);
+			});
+		});	
+		$(document).on("click", ".slide-inner, .img-wrap", function () {
+            var $this = $(this),
+            	slideID = $this.parent().attr("data-index"),
+            	$slide = $this.closest(".swiper-slide"),
+            	active = $slide.hasClass("active");
+
+            $(".swiper-slide").removeClass("active");
+            if (!active) {
+            	$slide.addClass("active");	
+            }
+            
+            if (_prevMarker != "") {
+	            if (_prevMarker.traffic == "Water") {
+	                _prevMarker.setIcon(boat);
+	            } else {
+	                _prevMarker.setIcon(car);
+	            }
+	            if (_prevMarker.id == slideID) {
+	                _prevMarker = "";
+	                return;
+	            }
+	        }
+
+            jQuery.each(_markers, function(i, marker) {
+                if (marker.id == slideID) {
+                	if (marker.traffic == "Water") {
+		                marker.setIcon(boatSelected);
+		            } else {
+		                marker.setIcon(carSelected);
+		            }
+		            _prevMarker = marker;
+		            return;
+                }
+            });
+        });
+
+        google.maps.event.addDomListener(window, 'resize', function() {
+        	var center = findCenter();
+		    _map.panTo(center);
+		});
+	}
+
+	function findCenter() {
+		var windowWidth = $(window).width();
+		if (windowWidth > 1024) {
+			center = new google.maps.LatLng(52.652, 5.465);
+		} else if (768 <= windowWidth && windowWidth <= 1024) {
+			center = new google.maps.LatLng(52.652, 5);
+		} else {
+			center = new google.maps.LatLng(52.652, 4.9);
+		}
+		return center;
+	}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+
+{> "partials/shared/footer" /}

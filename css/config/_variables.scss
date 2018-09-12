@@ -1,0 +1,60 @@
+//----------  variables
+//------------------------------------------------------------------------------
+
+$font-default: 'ClanPro-Book', Arial, sans-serif;
+$font-bold: 'ClanPro-Bold', Arial, sans-serif;
+$font-medium: 'ClanPro-Medium', Arial, sans-serif;
+
+// Colors
+$white: #fff;
+$black: #000;
+$orange: #f1592a;
+$blue: #0af;
+$dark-blue: #0c60a8;
+$grey: #f5f5f5;
+$green: #69af23;
+$dark-green: #0d873a;
+$pink: #ad2864;
+
+$site-colors: (
+	'black': $black,
+	'white': $white,
+  'blue': $blue,
+  'grey': $grey,
+  'green': $green,
+  'dark-green': $dark-green,
+  'pink': $pink,
+  'dark-blue': $dark-blue
+) !default;
+
+//----------  Bootstrap grid
+//------------------------------------------------------------------------------
+
+$enable-grid-classes:       true !default;
+
+//----------  Media queries breakpoints - Grid breakpoint
+//------------------------------------------------------------------------------
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+//----------  Grid containers
+//------------------------------------------------------------------------------
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+
+//----------  Grid columns
+//------------------------------------------------------------------------------
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
