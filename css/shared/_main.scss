@@ -73,6 +73,7 @@
 	}
 	@include breakpoint(phone) {
 		width: 70%;
+		bottom: 60px;
 		.banner {
 			left: auto;
 			right: 0;
@@ -129,7 +130,7 @@
 			display: block;
 			position: absolute;
 			left: 0;
-			bottom: 80px;
+			bottom: 60px;
 			padding: 24px 17px;
 		}
 	}
