@@ -6,19 +6,30 @@ let kaart = {
         var bridges = [];
         $.getJSON("http://engie.local/bridges.json?a=" + new Date().getTime(), 
             function(data) {
+            data.bridges.sort(sortByProperty("id"));    
             $.each(data.bridges, function(i, f) {
                 var slide = "",
                     responsive = "",
                     icon = "",
                     state = "",
                     popup = "",
-                    host = window.location.origin;
+                    host = window.location.origin,
+                    hideDownload = "",
+                    hidePopup = "";
 
                 if (f.type == "car") {
                     icon = "car-icon";
                 } else {
                     icon = "boat-icon";
                 }
+
+                if (f.popup_content == "-") {
+                    hidePopup = " hide";
+                }
+
+                if (f.download_url == "-") {
+                    hideDownload = " hide";
+                }                
 
                 if (f.state == "P") {
                     state = "in-progress";
@@ -35,14 +46,14 @@ let kaart = {
                     slide += "<div class='slide-inner'><div class='title-wrap'><h3 class='title'>" + f.name + "</h3><span class='tooltip-text'>" + f.name + "</span>";
                     slide += "<i class=" + icon + "></i></div>";
                     slide += "<p class='info'>" + f.info + "</p>";
-                    slide += "</div><a href='" + host + f.download_url + "' class='link left' download><span>DOWNLOAD </span>OMLEIDING</a><a href='javascript:;' class='link right overlay' data-index='" + f.id +"'><span>MEER </span>INFORMATIE</a></div></div>";
+                    slide += "</div><a href='" + host + f.download_url + "' class='link left" + hideDownload + "' download><span>DOWNLOAD </span>OMLEIDING</a><a href='javascript:;' class='link right overlay" + hidePopup + "' data-index='" + f.id +"'><span>MEER </span>INFORMATIE</a></div></div>";
 
                     $(slide).appendTo(".swiper-wrapper");
 
                     responsive = "<div class='bridge " + state + "' data-index='" + f.id +"'>";
                     responsive += "<div class='title-wrap'><h3 class='title'>" + f.name + "</h3><i class=" + icon + "></i></div>";
                     responsive += "<p class='info'>" + f.info + "</p>";
-                    responsive += "<a href='" + host + f.download_url + "' class='link left' download><span>DOWNLOAD </span>OMLEIDING</a><a href='javascript:;' class='link right overlay' data-index='" + f.id +"'><span>MEER </span>INFORMATIE</a></div>";
+                    responsive += "<a href='" + host + f.download_url + "' class='link left" + hideDownload + "' download><span>DOWNLOAD </span>OMLEIDING</a><a href='javascript:;' class='link right overlay" + hidePopup + "' data-index='" + f.id +"'><span>MEER </span>INFORMATIE</a></div>";
 
                     $(responsive).appendTo(".bridges-responsive");
 
@@ -111,6 +122,12 @@ let kaart = {
                     alwaysVisible: !1
                 })
             }
+        };
+
+        function sortByProperty(property) {
+            return function (x, y) {
+                return ((x[property] === y[property]) ? 0 : ((parseInt(x[property]) > parseInt(y[property])) ? 1 : -1));
+            };
         }
     }
 };

@@ -36,6 +36,9 @@
 	}
 	@include breakpoint(phone) {
 		padding: 0 17px;
+		p, a {
+			font-size: 11px;
+		}
 		ul {
 			display: none;
 		}

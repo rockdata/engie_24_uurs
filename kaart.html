@@ -39,11 +39,11 @@
 		<div class="right">
 			<a href="tel:0800-020-06-00">
 				<img src="images\svg\Phone_icon.svg" alt="" />
-				0800 - 020 06 00
+				<span>0800 - 020 06 00</span>
 			</a>
 			<a href="emailto:">
 				<img src="images\svg\Email_icon.svg" alt="" />
-				E-MAIL
+				<span>E-MAIL</span>
 			</a>
 		</div>
 	</header>
@@ -55,7 +55,7 @@
 		<div class="slider">
 			<div class="banner green">
 				<p>
-					Lorem ipsum
+					Waar en wanneer is ENGIE aan de slag?
 				</p>
 			</div>
 			<div class="swiper-container">
@@ -162,8 +162,8 @@
 							} else {
 								marker.setIcon(carSelected);
 							}
-
-							_swiper.slideTo(parseInt(this.id) + 1, 300, true);
+							var index = $(".swipper-slide-inner[data-index='" + parseInt(this.id) + "']").parent().not(".swiper-slide-duplicate").attr("data-swiper-slide-index");
+							_swiper.slideTo(parseInt(index) + 2, 300, true);
 
 							$(".swiper-slide").removeClass("active");
 							$(".swipper-slide-inner[data-index='" + parseInt(this.id) + "']").parent().addClass("active");
