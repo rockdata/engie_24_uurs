@@ -9,11 +9,12 @@ html {
 body {
 	font-family: $font-default;
 	font-size: 14px;
-    display: grid;
-    grid-template-rows: 88px calc(100% - 168px) 80px;
-    @include breakpoint(phone) {
-    	grid-template-rows: 88px calc(100% - 148px) 60px;
-    }
+	display: grid;
+	grid-template-rows: 88px 1fr 80px;
+	grid-template-columns: 1fr;
+	@include breakpoint(phone) {
+		grid-template-rows: 88px 1fr 60px;
+	}
 }
 
 .wrap {

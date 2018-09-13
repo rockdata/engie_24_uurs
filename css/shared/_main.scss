@@ -352,3 +352,31 @@
 	background: rgba(8, 31, 63, .4);
 	display: none;
 }
+.ie {
+	.header {
+		background-color: $white;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 9999;
+		width: 100%;
+	}
+	.main {
+		height: calc(100% - 80px);
+	}
+	.footer {
+		background-color: $white;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		ul {
+			li {
+				&:first-child {
+					width: 135px;
+				}
+				width: 52px;
+			}
+		}
+	}
+}
