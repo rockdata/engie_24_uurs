@@ -2,9 +2,9 @@
 
 let kaart = {
     initSlider: function() {
-
-        var bridges = [];
-        $.getJSON("http://engie.local/bridges.json?a=" + new Date().getTime(), 
+        var bridges = [],
+            host = window.location.origin;
+        $.getJSON(host + "/bridges.json?a=" + new Date().getTime(), 
             function(data) {
             data.bridges.sort(sortByProperty("id"));    
             $.each(data.bridges, function(i, f) {

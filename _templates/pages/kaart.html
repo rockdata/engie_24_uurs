@@ -70,10 +70,9 @@
 		};
 
 		var bridges = "";
-		$.getJSON("http://engie.local/bridges.json?a=" + new Date().getTime(),
+		$.getJSON(host + "/bridges.json?a=" + new Date().getTime(),
 			function(data) {
 			bridges = data.bridges;
-	
 			bridges.forEach(function(bridge) {
 				//create marker
 				var marker = new google.maps.Marker({

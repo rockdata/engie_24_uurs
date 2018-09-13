@@ -90,9 +90,9 @@ x();"bottom"===a.start?(c.css({top:b.outerHeight()-c.outerHeight()}),n(0,!0)):"t
 
         var kaart = {
             initSlider: function initSlider() {
-
-                var bridges = [];
-                $.getJSON("http://engie.local/bridges.json?a=" + new Date().getTime(), function (data) {
+                var bridges = [],
+                    host = window.location.origin;
+                $.getJSON(host + "/bridges.json?a=" + new Date().getTime(), function (data) {
                     data.bridges.sort(sortByProperty("id"));
                     $.each(data.bridges, function (i, f) {
                         var slide = "",
