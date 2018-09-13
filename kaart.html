@@ -152,6 +152,12 @@
 								} else {
 									_prevMarker.setIcon(car);
 								}
+								if (_prevMarker.customName == bridgeName) {
+									_prevMarker = "";
+									$(".swiper-slide").removeClass("active");
+									$(".bridge").removeClass("active");
+									return;
+								}
 							}
 
 							_prevMarker = this;
@@ -181,6 +187,7 @@
 					active = $slide.hasClass("active");
 
 				$(".swiper-slide").removeClass("active");
+				$(".bridge").removeClass("active");
 				if (!active) {
 					$slide.addClass("active");
 				}
@@ -196,6 +203,8 @@
 						return;
 					}
 				}
+
+				$(".bridges-responsive").find(".bridge[data-index='" + parseInt(slideID) + "']").addClass("active");
 
 				jQuery.each(_markers, function(i, marker) {
 					if (marker.id == slideID) {

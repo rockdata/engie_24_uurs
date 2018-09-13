@@ -11,6 +11,9 @@ body {
 	font-size: 14px;
     display: grid;
     grid-template-rows: 88px calc(100% - 168px) 80px;
+    @include breakpoint(phone) {
+    	grid-template-rows: 88px calc(100% - 128px) 40px;
+    }
 }
 
 .wrap {
