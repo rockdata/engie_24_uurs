@@ -17,7 +17,8 @@
 		margin-bottom: 33px;
 	}
 	.swipper-slide-inner {
-		border: 1px solid $grey;
+		box-shadow: 0 0 3px rgba(216, 216, 216, .50);
+		border: 1px solid #f6f6f6;
 		margin: 0 2.75%;
 		height: 100%;
 	}
@@ -117,7 +118,8 @@
 		}
 	}
 	.swipper-slide-inner {
-		box-shadow: 0 0 12px rgba(229, 229, 229, .8);
+		box-shadow: 0 0 15px rgba(216, 216, 216, .85);
+		border: 1px solid #f6f6f6;
 	}
 }
 .bridges-responsive {
