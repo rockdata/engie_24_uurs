@@ -299,7 +299,7 @@
 		z-index: 40;
 		align-self: center;
 		overflow: hidden;
-		padding: 20px 18px 40px;
+		padding: 20px 0 40px 18px;
 	}
 	h1 {
 		font-family: $font-bold;
@@ -381,4 +381,8 @@
 			}
 		}
 	}
+}
+
+.scroll-panel {
+	padding-right: 20px;
 }
