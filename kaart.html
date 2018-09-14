@@ -82,6 +82,7 @@
 			var host = window.location.origin;
 			var windowWidth = $(window).width();
 			var center = findCenter();
+			var zoom = findZoom();
 
 			var mapOptions = {
 				center: center,
@@ -92,7 +93,7 @@
 				},
 				streetViewControl: false,
 				fullscreenControl: false,
-				zoom: 9.5
+				zoom: zoom
 			}
 			_map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
@@ -221,6 +222,8 @@
 
 			google.maps.event.addDomListener(window, 'resize', function() {
 				var center = findCenter();
+				var zoom = findZoom();
+				_map.setZoom(zoom);
 				_map.panTo(center);
 			});
 		}
@@ -235,6 +238,18 @@
 				center = new google.maps.LatLng(52.652, 4.9);
 			}
 			return center;
+		}
+
+		function findZoom() {
+			var windowWidth = $(window).width();
+			if (windowWidth > 1024) {
+				zoom = 9.5;
+			} else if (768 <= windowWidth && windowWidth <= 1024) {
+				zoom = 9.3;
+			} else {
+				zoom = 9.3;
+			}
+			return zoom;
 		}
 	</script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0ZCtx4e9Zddg9h2v8iN8ymsb09ZWSaTA&callback=initMap" async defer></script>
